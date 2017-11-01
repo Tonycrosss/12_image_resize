@@ -11,24 +11,23 @@ def resize_image(image, width=None, height=None, scale=None, path_to_result='./_
     old_image_width = image.size[0]
     old_image_height = image.size[1]
     if width == None and height != None:
-        size_difference = abs(height - old_image_height)
-        width = old_image_width - size_difference
+        width = height * old_image_width // old_image_height
     if height == None and width != None:
-        size_difference = abs(width - old_image_width)
-        height = old_image_height - size_difference
-    if scale != None:
-        resized_image = image.resize((width * scale, height * scale))
+        height = width * old_image_height // old_image_width
+    if width == None and height == None and scale != None:
+        resized_image = image.resize((old_image_width * scale, old_image_height * scale))
+    elif scale != None and (width != None or height != None):
+        raise 'ARE U DOWN???'
     else:
         resized_image = image.resize((width, height))
     return resized_image
 
 
 def save_image(image, filepath='./'):
-    pass
-
+    image.save(filepath + 'piccccc.jpg')
 
 
 if __name__ == '__main__':
     image = load_image()
-    resized_image = resize_image(image, width=300, height=300)
+    resized_image = resize_image(image, height=2, scale=3)
     save_image(resized_image)
