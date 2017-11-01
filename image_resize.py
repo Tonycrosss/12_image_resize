@@ -15,9 +15,9 @@ def resize_image(image, width=None, height=None, scale=None, path_to_result='./_
     if height == None and width != None:
         height = width * old_image_height // old_image_width
     if width == None and height == None and scale != None:
-        resized_image = image.resize((old_image_width * scale, old_image_height * scale))
+        resized_image = image.resize((int(old_image_width * scale), int(old_image_height * scale)))
     elif scale != None and (width != None or height != None):
-        raise 'ARE U DOWN???'
+        raise 'Error'
     else:
         resized_image = image.resize((width, height))
     return resized_image
@@ -29,5 +29,5 @@ def save_image(image, filepath='./'):
 
 if __name__ == '__main__':
     image = load_image()
-    resized_image = resize_image(image, height=2, scale=3)
+    resized_image = resize_image(image)
     save_image(resized_image)
