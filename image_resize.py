@@ -44,7 +44,7 @@ def parsing_args():
     args = parser.parse_args()
     return args
 
-
+# TODO: --out плохо работает, поправить
 if __name__ == '__main__':
     args = parsing_args()
     path_to_image = args.img
