@@ -39,11 +39,12 @@ def parsing_args():
                         help='Enter new width')
     parser.add_argument('--height', type=int, const=None,
                         help='Enter new heigh')
-    parser.add_argument('--scale', type=int, const=None,
+    parser.add_argument('--scale', type=float, const=None,
                         help='Enter scale')
     parser.add_argument('--out', type=str, help='Enter new_file_path')
     args = parser.parse_args()
     return args
+
 
 if __name__ == '__main__':
     args = parsing_args()
