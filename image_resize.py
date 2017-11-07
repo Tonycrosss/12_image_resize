@@ -19,7 +19,7 @@ def resize_image(image, width, height, scale):
         resized_image = image.resize((int(old_image_width * scale),
                                       int(old_image_height * scale)))
     elif scale != None and (width != None or height != None):
-        raise 'Error'
+        raise Exception('Error, u cannot use scale and width/height together!')
     else:
         resized_image = image.resize((width, height))
     return resized_image
