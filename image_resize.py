@@ -11,14 +11,14 @@ def load_image(path_to_image):
 def resize_image(image, width, height, scale):
     old_image_width = image.size[0]
     old_image_height = image.size[1]
-    if width == None and height != None:
+    if width is None and height is not None:
         width = height * old_image_width // old_image_height
-    if height == None and width != None:
+    if height is None and width is not None:
         height = width * old_image_height // old_image_width
-    if width == None and height == None and scale != None:
+    if width is None and height is None and scale is not None:
         resized_image = image.resize((int(old_image_width * scale),
                                       int(old_image_height * scale)))
-    elif scale != None and (width != None or height != None):
+    elif scale is not None and (width is not None or height is not None):
         raise Exception('Error, u cannot use scale and width/height together!')
     else:
         resized_image = image.resize((width, height))
