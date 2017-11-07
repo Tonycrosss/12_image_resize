@@ -25,13 +25,13 @@ def resize_image(image, width, height, scale):
     return resized_image
 
 
-def save_image(image, filepath):
+def save_image(image, dirpath):
     width = image.size[0]
     height = image.size[1]
-    image.save(filepath + 'pic__{}x{}.jpg'.format(width, height))
+    image.save(dirpath + 'pic__{}x{}.jpg'.format(width, height))
 
 
-def parsing_args():
+def parse_args():
     parser = argparse.ArgumentParser()
     parser.add_argument('--img', type=str, help='Enter path to image',
                         required=True)
@@ -47,7 +47,7 @@ def parsing_args():
 
 
 if __name__ == '__main__':
-    args = parsing_args()
+    args = parse_args()
     path_to_image = args.img
     new_width = args.width
     new_height = args.height
